@@ -42,7 +42,7 @@
                 <ImageButton Source="blackblox.png"
                              x:Name="snapPreview"
                              Style="{StaticResource CameraControlButton}"
-                             Clicked="OnShowTheImage"/>
+                             />
                     
                 <!-- Capture Button -->
                 <ImageButton Source="blackflare.png"

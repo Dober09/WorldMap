@@ -195,7 +195,7 @@ namespace WorldMap
                     });
 
 
-
+                    flareBtn.Source = "flare.png";
                     snapPreview.Source = result;
                 }
 
@@ -205,25 +205,21 @@ namespace WorldMap
             }
         }
 
-        private void OnFlashClicked(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private FlashMode currentFlashMode = FlashMode.Auto;
-        private void OnShowTheImage(object sender, EventArgs e)
+        private void OnFlashClicked(object sender, EventArgs e)
         {
 
             switch (currentFlashMode)
             {
                 case FlashMode.Disabled:
                     currentFlashMode = FlashMode.Enabled;
-                    flashBtn.Source = "blueflash.png";
+                    flashBtn.Source = "flash.png";
                     break;
 
                 case FlashMode.Enabled:
                     currentFlashMode = FlashMode.Auto;
-                    flashBtn.Source = "flash.png";
+                    flashBtn.Source = "blueflash.png";
                     break;
 
                 case FlashMode.Auto:

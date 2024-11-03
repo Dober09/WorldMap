@@ -57,6 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\blackblox.png" />
+	  <None Remove="Resources\Images\blackflare.png" />
+	  <None Remove="Resources\Images\blueflash.png" />
+	  <None Remove="Resources\Images\flare.png" />
+	  <None Remove="Resources\Images\flash.png" />
 	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\search.png" />
 	</ItemGroup>

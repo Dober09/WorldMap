@@ -8,14 +8,25 @@
     Shell.FlyoutBehavior="Disabled"
     Title="WorldMap">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
 
-    <ShellContent 
-        Title="About"
-        ContentTemplate="{DataTemplate view:LandingPage}"
-        Route="landingpage"/>
+    <TabBar>
+        <!-- First TabBar -->
+        <Tab>
+            <ShellContent Title="Take a Photo"
+                          ContentTemplate="{DataTemplate local:MainPage}"
+                          Route="MainPage" 
+             />
+        </Tab>
+
+        <!-- Second TabBar -->
+        <Tab>
+            <ShellContent
+                Title="Scan Item"
+                ContentTemplate="{DataTemplate view:LandingPage}"
+                />
+        </Tab>
+    </TabBar>
+
+
 
 </Shell>

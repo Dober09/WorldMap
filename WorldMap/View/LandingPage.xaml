@@ -2,11 +2,48 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorldMap.View.LandingPage"
-             Title="LandingPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             >
+    <Grid RowDefinitions="*,Auto">
+        <cv:CameraView Grid.Row="0"
+                       x:Name="cameraView"
+                     
+                       VerticalOptions="Fill"
+                       HorizontalOptions="Fill"
+                       CamerasLoaded="CameraView_CamerasLoaded"
+                       BarcodeDetected="CameraView_BarcodeDetected"
+                       >
+            
+        </cv:CameraView>
+        <!--Result Display-->
+        <Label Grid.Row="0"
+               x:Name="barcodeResult"
+               TextColor="white"
+               BackgroundColor="#80000000"
+               Padding="10"
+               Margin="20"
+               VerticalOptions="Start"
+               HorizontalOptions="Fill"
+               />
+        
+        <!-- camera control -->
+        <Grid Grid.Row="1">
+
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="20">
+                <Button Text="start scanning"
+                        x:Name="toogleScannningButton"
+                        Clicked="OnToggleScanningClicked"/>
+                
+                <!-- Switch Camera Button -->
+                <ImageButton  Source="blackflare.png"
+                              WidthRequest="50"
+                              HeightRequest="50"
+                              BackgroundColor="Transparent"
+                              Clicked="OnSwitchCameraClicked"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+    </Grid>
+
 </ContentPage>

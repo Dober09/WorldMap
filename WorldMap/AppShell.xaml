@@ -9,6 +9,10 @@
     Title="WorldMap">
 
 
+            <ShellContent
+                Title="Scan Item"
+                ContentTemplate="{DataTemplate view:LandingPage}"
+                />
     <TabBar>
         <!-- First TabBar -->
         <Tab>
@@ -19,12 +23,7 @@
         </Tab>
 
         <!-- Second TabBar -->
-        <Tab>
-            <ShellContent
-                Title="Scan Item"
-                ContentTemplate="{DataTemplate view:LandingPage}"
-                />
-        </Tab>
+     
     </TabBar>
 
 

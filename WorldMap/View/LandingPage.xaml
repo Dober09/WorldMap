@@ -37,8 +37,16 @@
 
         <Grid Grid.Row="1">
             <HorizontalStackLayout>
-                
+                <Border Stroke="{StaticResource maroon}"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 10,10,10,10"
+                        HeightRequest="50"
+                        Padding="10,3"
+                        HorizontalOptions="Center"
+                        >
+                    
                 <local:BorderlessEntry  Placeholder="Search a country"/>
+                </Border>
             </HorizontalStackLayout>
         </Grid>
 

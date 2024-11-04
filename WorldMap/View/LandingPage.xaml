@@ -2,48 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorldMap.View.LandingPage"
-             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
-             >
-    <Grid RowDefinitions="*,Auto">
-        <cv:CameraView Grid.Row="0"
-                       x:Name="cameraView"
-                     
-                       VerticalOptions="Fill"
-                       HorizontalOptions="Fill"
-                       CamerasLoaded="CameraView_CamerasLoaded"
-                       BarcodeDetected="CameraView_BarcodeDetected"
-                       >
-            
-        </cv:CameraView>
-        <!--Result Display-->
-        <Label Grid.Row="0"
-               x:Name="barcodeResult"
-               TextColor="white"
-               BackgroundColor="#80000000"
-               Padding="10"
-               Margin="20"
-               VerticalOptions="Start"
-               HorizontalOptions="Fill"
-               />
-        
-        <!-- camera control -->
-        <Grid Grid.Row="1">
+             xmlns:local="clr-namespace:WorldMap"
+            BackgroundColor="#6A1E55" >
 
-            <HorizontalStackLayout HorizontalOptions="Center"
-                                   Spacing="20">
-                <Button Text="start scanning"
-                        x:Name="toogleScannningButton"
-                        Clicked="OnToggleScanningClicked"/>
+    <Grid RowDefinitions="Auto,*,*">
+        <!-- -->
+
+        <Frame
+                BackgroundColor="{StaticResource maroon}"
+                Grid.Row="0"
+                HasShadow="True"
+                HeightRequest="70"
+                >
+        <!-- The Shadow-->
+            <Frame.Shadow>
+                <Shadow Brush="{StaticResource black}"
+                       Opacity="0.6"
+                       Offset="10,10"
+                        />
+            </Frame.Shadow>
+
+            <HorizontalStackLayout  Margin="-20" Padding="4" HeightRequest="40" Spacing="76" VerticalOptions="Center"  >
+                <Label Text="Where in the world?"
+                       Style="{StaticResource LargeLabelStyle}" />
+                <HorizontalStackLayout Spacing="10" HeightRequest="20" VerticalOptions="Center">
+                    <ImageButton Source="{StaticResource darkImage}" WidthRequest="20" HeightRequest="20" Aspect="AspectFill" Margin="0"/>
+                    <Label Text="Dark Mode" TextColor="{StaticResource Gray}" />
+                </HorizontalStackLayout>
+                    
                 
-                <!-- Switch Camera Button -->
-                <ImageButton  Source="blackflare.png"
-                              WidthRequest="50"
-                              HeightRequest="50"
-                              BackgroundColor="Transparent"
-                              Clicked="OnSwitchCameraClicked"/>
+               
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Grid Grid.Row="1">
+            <HorizontalStackLayout>
+                
+                <local:BorderlessEntry  Placeholder="Search a country"/>
             </HorizontalStackLayout>
         </Grid>
 
+
     </Grid>
+    
+    
+   
 
 </ContentPage>

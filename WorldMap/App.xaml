@@ -5,34 +5,25 @@
              x:Class="WorldMap.App">
     <Application.Resources>
 
-        <Thickness x:Key="PageMargin">20</Thickness>
-        
-        
         <!-- Colors -->
-        <Color x:Key="AppBackgroundColor">AliceBlue</Color>
-        <Color x:Key="NavigationBarColor">#1976D2</Color>
-        <Color x:Key="NavigationBarTextColor">white</Color>
-        <Color x:Key="NormalTextColor">Black</Color>
-            
-        <!-- Images -->
-        <x:String x:Key="BackgroundImage">background</x:String>
-        <x:String x:Key="MenuIcon">menu.png</x:String>
-        <x:String x:Key="SearchIcon">search.png</x:String>
-            
-         <!-- Implicit styles -->
-        <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" 
-                    Value="{StaticResource NavigationBarColor}"/>
-            <Setter Property="BarTextColor"
-                    Value="{StaticResource NavigationBarTextColor}"/>
+        <Color x:Key="black" >#1A1A1D</Color>
+        <Color x:Key="maroon">#3B1C32</Color>
+        <Color x:Key="Gray">#F1F6F9</Color>
+        
+        <!--Image-->
+        <x:String x:Key="lightImage">light.png</x:String>
+        <x:String x:Key="darkImage">night.png</x:String>
+        
+        
+        <!--Styles-->
 
+        <Style TargetType="Label"
+               x:Key="LargeLabelStyle">
+            <Setter Property="FontFamily" Value="PoppinsRegular"/>
+            <Setter Property="FontSize"  Value="20"/>
+            <Setter Property="TextColor" Value="{StaticResource Gray}"/>
         </Style>
-
-        <Style TargetType="ContentPage"
-               ApplyToDerivedTypes="True">
-            <Setter Property="BackgroundColor"
-                    Value="{StaticResource AppBackgroundColor}"/>
-        </Style>
+               
         
     </Application.Resources>
 </Application>

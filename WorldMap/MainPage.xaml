@@ -5,64 +5,8 @@
              x:Class="WorldMap.MainPage">
 
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            
-            <!-- Add your resource styles here -->
-            <Style x:Key="CameraControlButton" TargetType="ImageButton">
-                <Setter Property="WidthRequest" Value="50"/>
-                <Setter Property="HeightRequest" Value="50"/>
-                <Setter Property="CornerRadius"  Value="20" />
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-            </Style>
-
-        </ResourceDictionary>
-    </ContentPage.Resources>
-   
+    <Grid>
         
-
-        <Grid RowDefinitions="*,Auto">
-            
-        
-
-            <cv:CameraView x:Name="cameraView"
-                           Grid.Row="0"
-                           VerticalOptions="Fill"
-                           HorizontalOptions="Fill"
-                           CamerasLoaded="CameraView_CamerasLoaded" />
-
-        <Grid Grid.Row="1"
-               BackgroundColor="#FFFFFF"
-               Padding="10">
-            
-            <HorizontalStackLayout  HorizontalOptions="Center"
-                                    Spacing="20">
-                
-                <!-- Show Image in detail Button -->   
-                <ImageButton Source="blackblox.png"
-                             x:Name="snapPreview"
-                             Style="{StaticResource CameraControlButton}"
-                             />
-                    
-                <!-- Capture Button -->
-                <ImageButton Source="blackflare.png"
-                             x:Name="flareBtn"
-                             Style="{StaticResource CameraControlButton}"
-                             Clicked="OnCaptureClicked"/> 
-                
-                <!-- Flash Toggle Button -->
-                <ImageButton Source="flash.png"
-                             x:Name="flashBtn"
-                             Style="{StaticResource CameraControlButton}"
-                             Clicked="OnFlashClicked"/>
-            </HorizontalStackLayout>
-        </Grid>
-        <!--<ActivityIndicator x:Name="loadingIndicator"
-                               IsRunning="True"
-                               IsVisible="{Binding Source={x:Reference cameraView},
-                                                   Path=IsAvailable,
-                                                   Converter= {StaticResource InverseBoolconverter}}"/>-->
-
     </Grid>
 
    

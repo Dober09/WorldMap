@@ -9,23 +9,7 @@
     Title="WorldMap">
 
 
-            <ShellContent
-                Title="Scan Item"
-                ContentTemplate="{DataTemplate view:LandingPage}"
-                />
-    <TabBar>
-        <!-- First TabBar -->
-        <Tab>
-            <ShellContent Title="Take a Photo"
-                          ContentTemplate="{DataTemplate local:MainPage}"
-                          Route="MainPage" 
-             />
-        </Tab>
-
-        <!-- Second TabBar -->
-     
-    </TabBar>
-
+    <ShellContent ContentTemplate="{DataTemplate view:LandingPage}" />
 
 
 </Shell>

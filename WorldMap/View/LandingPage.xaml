@@ -36,18 +36,42 @@
         </Frame>
 
         <Grid Grid.Row="1">
-            <HorizontalStackLayout>
+            <HorizontalStackLayout VerticalOptions="Start" Margin="20" Spacing="30">
+
                 <Border Stroke="{StaticResource maroon}"
-                        StrokeThickness="2"
-                        StrokeShape="RoundRectangle 10,10,10,10"
-                        HeightRequest="50"
-                        Padding="10,3"
-                        HorizontalOptions="Center"
-                        >
-                    
-                <local:BorderlessEntry  Placeholder="Search a country"/>
+                         StrokeThickness="2"
+                         StrokeShape="RoundRectangle 10,10,10,10"
+                         HeightRequest="50"
+                         Padding="10,3"
+                         HorizontalOptions="Center"
+                            >
+                    <HorizontalStackLayout Spacing="10">
+                        <local:BorderlessEntry  Placeholder="Search a country . . ." PlaceholderColor="White"/>
+                        <ImageButton Source="{StaticResource searchImage}" WidthRequest="15"  HeightRequest="15"/>
+                    </HorizontalStackLayout>
                 </Border>
+
+
+                <Picker x:Name="picker"
+                            Title="Select by Region">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Africa</x:String>
+                            <x:String>America</x:String>
+                            <x:String>Asia</x:String>
+                            <x:String>Europe</x:String>
+                            <x:String>Oceania</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+
             </HorizontalStackLayout>
+        </Grid>
+
+
+        <Grid Grid.Row="2">
+            
         </Grid>
 
 

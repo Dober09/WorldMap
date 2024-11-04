@@ -13,6 +13,7 @@
         <!--Image-->
         <x:String x:Key="lightImage">light.png</x:String>
         <x:String x:Key="darkImage">night.png</x:String>
+        <x:String x:Key="searchImage">search.png</x:String>
         
         
         <!--Styles-->

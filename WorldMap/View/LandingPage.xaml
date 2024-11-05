@@ -70,8 +70,47 @@
         </Grid>
 
 
-        <Grid Grid.Row="2">
-            <Label Text="" FontSize="23"/>
+        <Grid  Grid.Row="1">
+          
+
+            <!-- Countries list -->
+            <CollectionView 
+                       ItemsSource="{Binding Countries}"
+                       SelectionMode="Single"
+                       SelectedItem="{Binding SelectedCountry}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Flag image -->
+                            <Image Source="{Binding Flags.Png}"
+                               HeightRequest="30"
+                               WidthRequest="50"
+                               Aspect="AspectFill"/>
+
+                            <!-- Country details -->
+                            <VerticalStackLayout Grid.Column="1" 
+                                           Margin="10,0,0,0">
+                                <Label Text="{Binding Name.Common}"
+                                   FontAttributes="Bold"/>
+                                <Label Text="{Binding Capital[0]}"
+                                   FontSize="Small"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Loading indicator -->
+            <ActivityIndicator Grid.RowSpan="2"
+                          IsRunning="{Binding IsLoading}"
+                          IsVisible="{Binding IsLoading}"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center"/>
         </Grid>
 
 

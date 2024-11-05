@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Camera.MAUI;
+using WorldMap.Services;
 
 namespace WorldMap
 {
@@ -10,7 +10,7 @@ namespace WorldMap
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCameraView()
+                
                 .ConfigureFonts(fonts =>
                 {
                     
@@ -20,6 +20,9 @@ namespace WorldMap
                     fonts.AddFont("Poppins-Bold.ttf", "PoppinsBold");
                     fonts.AddFont("Poppins-Italic.ttf", "PoppinsItalic");
                 });
+
+            builder.Services.AddSingleton<IDataService, DataServices>();
+
 
 #if DEBUG
     		builder.Logging.AddDebug();

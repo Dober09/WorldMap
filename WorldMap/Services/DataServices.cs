@@ -6,11 +6,7 @@ namespace WorldMap.Services
 {
     public class DataServices : IDataService
     {
-        private readonly string _jsonFilePath;
-
-        public DataServices(string jsonFilePath = "") { 
-             _jsonFilePath = jsonFilePath;
-        }
+       
         public async Task<List<CountryModel>> LoadJsonDataAsync()
         {
             try
@@ -20,7 +16,7 @@ namespace WorldMap.Services
                 string dataFolderPath = Path.Combine(basePath, "Data");
                 string jsonFilePath = Path.Combine(dataFolderPath, "data.json");
 
-                //Read the JSON file
+                //Read the JSN file
                 string jsonContent = await File.ReadAllTextAsync(jsonFilePath);
 
                 var options = new JsonSerializerOptions

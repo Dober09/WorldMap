@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:WorldMap"
              x:Class="WorldMap.App">
     <Application.Resources>
+        
 
         <!-- Colors -->
         <Color x:Key="black" >#1A1A1D</Color>

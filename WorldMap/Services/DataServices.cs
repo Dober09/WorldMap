@@ -6,24 +6,23 @@ namespace WorldMap.Services
 {
     public class DataServices : IDataService
     {
-       
+        
         public async Task<List<CountryModel>> LoadJsonDataAsync()
         {
             try
             {
                 // Get the path to Data folder
-                string basePath = AppDomain.CurrentDomain.BaseDirectory;
-                string dataFolderPath = Path.Combine(basePath, "Data");
-                string jsonFilePath = Path.Combine(dataFolderPath, "data.json");
-
-                //Read the JSN file
-                string jsonContent = await File.ReadAllTextAsync(jsonFilePath);
+             using var stream = await FileSystem.OpenAppPackageFileAsync("data.json");
+               
+             using var reader = new StreamReader(stream);
+             var jsonContent = await reader.ReadToEndAsync();
 
                 var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
                 };
 
+                
                 return JsonSerializer.Deserialize<List<CountryModel>>(jsonContent,options);
 
             }catch (Exception ex)

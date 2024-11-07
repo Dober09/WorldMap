@@ -3,6 +3,7 @@ using WorldMap.Models;
 using CommunityToolkit.Mvvm.Input;
 using WorldMap.Services;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 
 
 namespace WorldMap.ViewModel
@@ -12,7 +13,7 @@ namespace WorldMap.ViewModel
         private readonly IDataService  _dataServices;
 
         [ObservableProperty]
-        private List<CountryModel> _countries;
+        private ObservableCollection<CountryModel> _countries;
 
         [ObservableProperty]
         private CountryModel _countryModel;
@@ -23,18 +24,21 @@ namespace WorldMap.ViewModel
         public CountryViewModel(IDataService dataServices)
         {
             _dataServices = dataServices;
-            LoadDataComand = new AsyncRelayCommand(LoadDataAsync); ;
+            
+            Countries = new ObservableCollection<CountryModel>();
 
         }
 
-        public  ICommand LoadDataComand { get;  }
+    
 
+        [RelayCommand]
         private async Task LoadDataAsync()
         {
             try
             {
-                IsLoading = true;
-                Countries = await _dataServices.LoadJsonDataAsync();
+               IsLoading = true;
+               var countries = await _dataServices.LoadJsonDataAsync();
+               Countries = new ObservableCollection<CountryModel>(countries); 
 
             }catch (Exception ex)
             {

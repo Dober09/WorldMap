@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using WorldMap.Services;
+using WorldMap.View;
+using WorldMap.ViewModel;
 
 namespace WorldMap
 {
@@ -22,6 +24,8 @@ namespace WorldMap
                 });
 
             builder.Services.AddSingleton<IDataService, DataServices>();
+            builder.Services.AddSingleton<CountryViewModel>();
+            builder.Services.AddTransient<LandingPage>();
 
 
 #if DEBUG

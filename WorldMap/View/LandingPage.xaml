@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorldMap.View.LandingPage"
              xmlns:local="clr-namespace:WorldMap"
+             xmlns:vm="clr-namespace:WorldMap.ViewModel"
+             xmlns:model="clr-namespace:WorldMap.Models"
+             
+            x:DataType="vm:CountryViewModel"
             BackgroundColor="#6A1E55" >
 
-    <Grid RowDefinitions="Auto,*,*">
-        <!-- -->
+    <Grid RowDefinitions="Auto,Auto,Auto">
+        <!-- Header  -->
 
         <Frame
                 BackgroundColor="{StaticResource maroon}"
@@ -35,7 +39,7 @@
             </HorizontalStackLayout>
         </Frame>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"  >
             <HorizontalStackLayout VerticalOptions="Start" Margin="20" Spacing="30">
 
                 <Border Stroke="{StaticResource maroon}"
@@ -70,17 +74,16 @@
         </Grid>
 
 
-        <Grid  Grid.Row="1">
+        <Grid  Grid.Row="2">
           
 
             <!-- Countries list -->
-            <CollectionView 
-                       ItemsSource="{Binding Countries}"
-                       SelectionMode="Single"
-                       SelectedItem="{Binding SelectedCountry}">
+            <CollectionView  ItemsSource="{Binding Countries}"
+                             Margin="0"
+                    >
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
+                    <DataTemplate x:DataType="model:CountryModel">
+                        <Grid   ColumnSpacing="19" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
@@ -88,16 +91,22 @@
 
                             <!-- Flag image -->
                             <Image Source="{Binding Flags.Png}"
-                               HeightRequest="30"
-                               WidthRequest="50"
-                               Aspect="AspectFill"/>
+                                   HeightRequest="130"
+                                   Grid.Column="0"
+                                   WidthRequest="160"
+                                   Aspect="AspectFit"
+                                   />
 
                             <!-- Country details -->
                             <VerticalStackLayout Grid.Column="1" 
-                                           Margin="10,0,0,0">
+                                                 VerticalOptions="Center"
+                                                 WidthRequest="120"
+                                                 >
                                 <Label Text="{Binding Name.Common}"
+                                        Style="{StaticResource LargeLabelStyle}"
                                    FontAttributes="Bold"/>
                                 <Label Text="{Binding Capital[0]}"
+                                       Style=""
                                    FontSize="Small"/>
                             </VerticalStackLayout>
                         </Grid>

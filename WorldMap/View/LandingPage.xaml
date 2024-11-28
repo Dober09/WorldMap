@@ -83,33 +83,42 @@
                     >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:CountryModel">
-                        <Grid   ColumnSpacing="19" >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        <Frame BackgroundColor="#6A1E55"  HeightRequest="150" >
+                            <!-- Adding Gesture Recognize -->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding  Source={RelativeSource AncestorType={x:Type vm:CountryViewModel}} , Path=GoToDetailsCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            
+                            <Grid   ColumnSpacing="20" Padding="10" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <!-- Flag image -->
-                            <Image Source="{Binding Flags.Png}"
-                                   HeightRequest="130"
-                                   Grid.Column="0"
-                                   WidthRequest="160"
-                                   Aspect="AspectFit"
-                                   />
+                                <!-- Flag image -->
+                                <Image Source="{Binding Flags.Png}"
+                                       HeightRequest="130"
+                                       Grid.Column="0"
+                                       WidthRequest="160"
+                                       Aspect="AspectFit"
+                                       />
 
-                            <!-- Country details -->
-                            <VerticalStackLayout Grid.Column="1" 
-                                                 VerticalOptions="Center"
-                                                 WidthRequest="120"
-                                                 >
-                                <Label Text="{Binding Name.Common}"
-                                        Style="{StaticResource LargeLabelStyle}"
-                                   FontAttributes="Bold"/>
-                                <Label Text="{Binding Capital[0]}"
-                                       Style=""
-                                   FontSize="Small"/>
-                            </VerticalStackLayout>
-                        </Grid>
+                                <!-- Country details -->
+                                <VerticalStackLayout Grid.Column="1" 
+                                                     VerticalOptions="Center"
+                                                 
+                                                     >
+                                    <Label Text="{Binding Name.Common}"
+                                            Style="{StaticResource LargeLabelStyle}"
+                                       FontAttributes="Bold"/>
+                                    <Label Text="{Binding Capital[0]}"
+                                      
+                                       FontSize="Small"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

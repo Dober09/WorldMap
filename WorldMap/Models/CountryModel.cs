@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 
 namespace WorldMap.Models
 {
@@ -100,4 +102,5 @@ namespace WorldMap.Models
         [JsonPropertyName("svg")]
         public string Svg { get; set; }
     }
+
 }

@@ -1,5 +1,4 @@
 using WorldMap.ViewModel;
-using WorldMap.Services;
 namespace WorldMap.View;
 
 public partial class LandingPage : ContentPage

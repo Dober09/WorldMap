@@ -23,9 +23,16 @@ namespace WorldMap
                     fonts.AddFont("Poppins-Italic.ttf", "PoppinsItalic");
                 });
 
+            builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+            builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
+            builder.Services.AddSingleton<IMap>(Map.Default);
+
             builder.Services.AddSingleton<IDataService, DataServices>();
             builder.Services.AddSingleton<CountryViewModel>();
             builder.Services.AddTransient<LandingPage>();
+
+            builder.Services.AddTransient<CountryDetailViewModel>();
+            builder.Services.AddTransient<DetailPage>();
 
 
 #if DEBUG

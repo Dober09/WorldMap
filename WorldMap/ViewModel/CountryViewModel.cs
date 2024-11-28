@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using WorldMap.Services;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using WorldMap.View;
 
 
 namespace WorldMap.ViewModel
@@ -11,6 +12,8 @@ namespace WorldMap.ViewModel
     public partial class CountryViewModel : ObservableObject
     {
         private readonly IDataService  _dataServices;
+
+        IConnectivity connectivity;
 
         [ObservableProperty]
         private ObservableCollection<CountryModel> _countries;
@@ -21,7 +24,7 @@ namespace WorldMap.ViewModel
         [ObservableProperty]
         private bool _isLoading;
         
-        public CountryViewModel(IDataService dataServices)
+        public CountryViewModel(IDataService dataServices,IConnectivity connectivity)
         {
             _dataServices = dataServices;
             
@@ -34,9 +37,16 @@ namespace WorldMap.ViewModel
         [RelayCommand]
         private async Task LoadDataAsync()
         {
+                //if (connectivity.NetworkAccess != NetworkAccess.)
+                //{
+                //    await Shell.Current.DisplayAlert("Internat issues", "Check your internet and try again", "OK");
+                //    return;
+                //}
             try
             {
-               IsLoading = true;
+
+
+                IsLoading = true;
                var countries = await _dataServices.LoadJsonDataAsync();
                
 
@@ -62,6 +72,27 @@ namespace WorldMap.ViewModel
             {
                 IsLoading = false;
             }
+        }
+
+
+        [RelayCommand]
+        async Task GoToDetails(CountryModel countrymodel )
+        {   
+            if(countrymodel == null)
+             return ;
+
+           
+            await Shell.Current.GoToAsync(nameof(DetailPage), new Dictionary<string, object>
+{
+    { "countrymodel", countrymodel }
+});
+
+            //await Shell.Current.GoToAsync(nameof(DetailPage)
+            //    , true,
+            //    new Dictionary<string, object>
+            //    {
+            //        {"CountryModel", countrymodel }
+            //    });
         }
     }
 }

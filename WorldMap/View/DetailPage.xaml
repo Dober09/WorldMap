@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorldMap.View.DetailPage"
+             xmlns:vm="clr-namespace:WorldMap.ViewModel"
+             x:DataType="vm:CountryViewModel"
+             Shell.PresentationMode="ModalAnimated"
+             Title="{Binding CountryModel.Name.Official}"
+             >
+    <Grid RowDefinitions="*,*,*" >
+        <VerticalStackLayout BackgroundColor="MidnightBlue"  Grid.Row="0" Spacing="20">
+
+            <Border Stroke="White" 
+                    StrokeThickness="2"
+                    HeightRequest="110"
+                    WidthRequest="210"
+                    Margin="0,30,0,0"
+                  
+                    >
+                <Image  Source="{Binding CountryModel.Flags.Png}" WidthRequest="230" HeightRequest="100" Margin="30"/>
+            </Border>
+
+            <Label Text="{Binding CountryModel.Name.Official}"
+                   TextColor="White" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
+        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
+        <Button Text="Show on Map"
+                Margin="0,0,0,130"
+                HeightRequest="50"
+                BorderColor="MidnightBlue"
+                
+                CornerRadius="5"
+                BackgroundColor="Transparent" TextColor="MidnightBlue" HorizontalOptions="Center"  />
+            
+        </HorizontalStackLayout>
+            
+        <VerticalStackLayout Grid.Row="3" 
+                             Spacing="20"
+                             Margin="10,-120,0,0">
+            <Label Text="Country Infomation" 
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   FontSize="21"/>
+            <VerticalStackLayout Spacing="3">
+            <Label Text="{Binding CountryModel.Name.Common, StringFormat='Country Name :   {0}'}"/>
+            <Label Text="{Binding CountryModel.Name.Official, StringFormat='Country Offical Name :   {0}'}"/>
+            <Label Text="{Binding CountryModel.Region, StringFormat='Country Region :   {0}'}"/>
+         
+            <Label Text="{Binding CountryModel.Capital[0], StringFormat='Capital City :   {0}'}"/>
+            <Label Text="{Binding CountryModel.Population, StringFormat='Current population :   {0}'}"/>
+        </VerticalStackLayout>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
